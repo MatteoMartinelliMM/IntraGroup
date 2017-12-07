@@ -10,10 +10,74 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/groupList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/BENVENUTO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Benvenuto: "
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/frameLayout">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/groupList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/loggedUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/BENVENUTO"
+            android:layout_centerHorizontal="true"
+            android:text="Matteo Martinelli"
+            android:textColor="#FF616161"
+            android:textSize="24dp"
+            android:textStyle="italic"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/gruppi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/frameLayout"
+            android:layout_centerHorizontal="true"
+            android:text="Lista dei gruppi a cui partecipi:"
+            android:layout_marginBottom="20dp"
+            android:textColor="#ff616161"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:backgroundTint="@android:color/background_light"
+            android:onClick="logout"
+            app:srcCompat="@drawable/logout" />
+
+        <TextView
+            android:id="@+id/LOGOUT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/imageButton"
+            android:layout_below="@+id/BENVENUTO"
+            android:text="  Logout"
+            android:textAlignment="textStart"
+            android:textColor="#FF616161" />
+
     </RelativeLayout>
 
 </RelativeLayout>

@@ -29,7 +29,8 @@
         </activity>
         <activity android:name=".View.LoginActivity" />
         <activity android:name=".View.OverviewActivity" />
-        <activity android:name=".View.SingUpActivity"></activity>
+        <activity android:name=".View.SingUpActivity" />
+        <activity android:name=".View.GroupActivity"></activity>
     </application>
 
 </manifest>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login"
+    android:background="@color/cardview_light_background"
     tools:context="mateomartinelli.user2cadem.it.intragroup.View.LoginActivity">
 
     <LinearLayout
@@ -64,4 +64,13 @@
         android:onClick="singUp"
         android:text="sing up"
         android:textColor="@android:color/background_light" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        app:srcCompat="@drawable/app_logo_for_login" />
 </RelativeLayout>
