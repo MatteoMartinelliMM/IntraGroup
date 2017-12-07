@@ -46,7 +46,7 @@ public class SingUpActivity extends AppCompatActivity {
         if(sPwd.equals(sPwd2)){
            u = new User(sUserName);
            utenti.addUser(u);
-           refDb.child(sUserName).setValue(pwd);
+           refDb.child(sUserName).child("pwd").setValue(pwd);
                if(thereIsALoggedUser){
                    Toast.makeText(this,"Registration succesful",Toast.LENGTH_SHORT).show();
                    intent = new Intent(this,LoginActivity.class);

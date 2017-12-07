@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
@@ -28,16 +29,18 @@ public class JSONParser {
         }
     }
 
-    public static String getUserPwd(String toParse,String user){
-        String pwd = "";
+    public static ArrayList<String> getUsersGroups(String toParse){
+        ArrayList<String> groups = new ArrayList<>();
         try {
             JSONObject jsonObject = new JSONObject(toParse);
-            pwd = jsonObject.getString(user);
-
+            Iterator<String> gruppi = jsonObject.keys();
+            while (gruppi.hasNext()){
+                String gruppo= gruppi.next();
+                groups.add(gruppo);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        return pwd;
+        return groups;
     }
 }
