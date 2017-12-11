@@ -74,13 +74,13 @@ public class CommentsActivity extends AppCompatActivity implements TaskWaiting {
         lastCommentId = Integer.toString(newLastId);
         final String commenToAdd = newComment.getText().toString();
         final Comments commentoDaAggiunger = new Comments(loggedUserName,commenToAdd);
+        comments.add(commentoDaAggiunger);
         myRef.child(lastCommentId).child("Autore").setValue(loggedUserName);
         myRef.child(lastCommentId).child("commento").setValue(commenToAdd);
-
+        comments.add(commentoDaAggiunger);
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                comments.add(commentoDaAggiunger);
                 chatAdapter.notifyDataSetChanged();
 
             }

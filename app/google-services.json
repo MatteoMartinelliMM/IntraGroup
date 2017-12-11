@@ -59,6 +59,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "985462985895-qvv6rpr36qp3c30mtjiudiimua1uo59l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mateomartinelli.user2cadem.it.intragroup",
+            "certificate_hash": "2423f3bc1fe706305f8581a7b52995ff0ff00333"
+          }
+        },
+        {
           "client_id": "985462985895-iuemrqqfg3g83sjg1vefs1h6oa9t7at2.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

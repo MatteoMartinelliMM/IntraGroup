@@ -8,6 +8,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -22,6 +25,7 @@ public class SingUpActivity extends AppCompatActivity {
     private Utenti utenti;
     private FirebaseDatabase db;
     private DatabaseReference refDb;
+    private String sPwd, sUserName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +42,9 @@ public class SingUpActivity extends AppCompatActivity {
 
     public void done(View v){
         boolean thereIsALoggedUser = UtilitySharedPreference.checkIfUserIsLogged(this);
-        String sPwd = pwd.getText().toString();
+        sPwd = pwd.getText().toString();
         String sPwd2 = pwd.getText().toString();
-        String sUserName = userName.getText().toString();
+        sUserName = userName.getText().toString();
         User u ;
         Intent intent;
         if(sPwd.equals(sPwd2)){

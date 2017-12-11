@@ -13,6 +13,8 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import java.util.ArrayList;
@@ -38,7 +40,8 @@ public class OverviewActivity extends AppCompatActivity implements TaskWaiting{
         super.onCreate(savedInstanceState);
         hidingTheTitleBar();
         setContentView(R.layout.activity_overview);
-
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference db = database.getReferenceFromUrl("https://nov01-6571d.firebaseio.com/Users/Gruppi");
         setUsefulThings();
 
         loggedUserName = UtilitySharedPreference.getLoggedUsername(this);

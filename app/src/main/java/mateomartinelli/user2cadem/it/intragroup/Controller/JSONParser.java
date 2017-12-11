@@ -96,20 +96,18 @@ public class JSONParser {
     public static ArrayList<Comments> getAllComments(String toParse, Context context) {
         ArrayList<Comments> comments = new ArrayList<>();
         Iterator<String> keys;
-        JSONArray jsonArray;
+        String keyInValuetion ="1";
         try {
             JSONObject jsonObject = new JSONObject(toParse);
-            jsonArray = fromJSONObjectToJSONArray(jsonObject);
-            for(int i = 0 ; i < jsonArray.length(); i++){
-                JSONObject temp = jsonArray.getJSONObject(i);
-                String autore = temp.getString("Autore");
-                String sCommento = temp.getString("commento");
-                Comments commento = new Comments(autore,sCommento);
-                comments.add(commento);
+            keys = jsonObject.keys();
+            while (keys.hasNext()){
+                keyInValuetion = keys.next();
+                String autore = jsonObject.getJSONObject(keyInValuetion).getString("Autore");
+                String commento = jsonObject.getJSONObject(keyInValuetion).getString("commento");
+                Comments c = new Comments(autore,commento);
+                comments.add(c);
             }
-            int lastIndexOf = jsonArray.length()-1;
-            String lastCommentId  = "01";
-            UtilitySharedPreference.saveLastCommentId(context,lastCommentId);
+            UtilitySharedPreference.saveLastCommentId(context,keyInValuetion);
 
 
         } catch (JSONException e) {
