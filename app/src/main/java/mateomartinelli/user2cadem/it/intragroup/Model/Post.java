@@ -1,10 +1,12 @@
 package mateomartinelli.user2cadem.it.intragroup.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by utente2.academy on 12/11/2017.
  */
 
-public class Post {
+public class Post implements Serializable {
     private String autore;
     private String data;
     private String titolo;

@@ -1,8 +1,10 @@
 package mateomartinelli.user2cadem.it.intragroup.Controller;
 
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -12,6 +14,9 @@ import java.util.ArrayList;
 import mateomartinelli.user2cadem.it.intragroup.Model.Gruppi;
 import mateomartinelli.user2cadem.it.intragroup.Model.Post;
 import mateomartinelli.user2cadem.it.intragroup.R;
+import mateomartinelli.user2cadem.it.intragroup.View.CommentsActivity;
+
+import static mateomartinelli.user2cadem.it.intragroup.Controller.RWObject.SAVE_POST;
 
 /**
  * Created by utente2.academy on 12/11/2017.
@@ -51,15 +56,25 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Post p = posts.get(position);
+        final Post p = posts.get(position);
 
-        String postName = p.getTitolo();
+        final String postName = p.getTitolo();
         String postDate = p.getData();
         String postAuthor = p.getAutore();
 
         holder.titoloPost.setText(postName);
         holder.dataPost.setText(postDate);
         holder.autore.setText(postAuthor);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int typeOfClick = v.getId();
+                RWObject.writeObject(v.getContext(), SAVE_POST,p);
+                Intent intent = new Intent(v.getContext(), CommentsActivity.class);
+                intent.putExtra(SAVE_POST,postName);
+                v.getContext().startActivity(intent);
+            }
+        });
 
     }
 

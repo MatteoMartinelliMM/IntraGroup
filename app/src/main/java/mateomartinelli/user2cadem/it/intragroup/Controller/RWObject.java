@@ -14,6 +14,7 @@ import java.io.ObjectOutputStream;
  */
 
 public class RWObject {
+    public final static String SAVE_POST = "savedPost";
     public static Object readObject(Context context, String fileName) {
         FileInputStream inputStream = null;
         ObjectInputStream objReader = null;

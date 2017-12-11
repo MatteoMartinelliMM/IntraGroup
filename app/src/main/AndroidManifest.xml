@@ -30,7 +30,9 @@
         <activity android:name=".View.LoginActivity" />
         <activity android:name=".View.OverviewActivity" />
         <activity android:name=".View.SingUpActivity" />
-        <activity android:name=".View.GroupActivity"></activity>
+        <activity android:name=".View.GroupActivity" />
+        <activity android:name=".View.CommentsActivity" />
+        <activity android:name=".View.AddPostActivity"></activity>
     </application>
 
 </manifest>

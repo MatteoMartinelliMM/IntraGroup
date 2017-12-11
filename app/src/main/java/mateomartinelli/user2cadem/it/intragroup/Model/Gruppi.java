@@ -1,12 +1,13 @@
 package mateomartinelli.user2cadem.it.intragroup.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by utente2.academy on 12/11/2017.
  */
 
-public class Gruppi {
+public class Gruppi implements Serializable {
     private String nomeGruppo;
     private ArrayList<Post> posts;
 

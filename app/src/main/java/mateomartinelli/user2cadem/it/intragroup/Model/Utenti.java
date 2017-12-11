@@ -1,13 +1,14 @@
 package mateomartinelli.user2cadem.it.intragroup.Model;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by utente2.academy on 12/6/2017.
  */
 
-public class Utenti {
+public class Utenti implements Serializable{
     private ArrayList<User> users;
 
     public Utenti() {

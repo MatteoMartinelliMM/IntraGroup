@@ -1,5 +1,7 @@
 package mateomartinelli.user2cadem.it.intragroup.Controller;
 
+import android.content.Context;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -61,25 +63,26 @@ public class JSONParser {
         return jsonArray;
     }
 
-    public static ArrayList<Post> getGroupsPosts(String toParse) {
+    public static ArrayList<Post> getGroupsPosts(String toParse, Context context,String groupName) {
         ArrayList<Post> posts = new ArrayList<>();
         JSONArray jsonArray = new JSONArray();
         try {
             JSONObject JPosts = new JSONObject(toParse);
             JSONObject JSinglePost = new JSONObject();
             Iterator<String> postsId = JPosts.keys();
-            String postInExam;
+            String postInExam = "";
             while (postsId.hasNext()){
                 postInExam = postsId.next();
                 JSinglePost = JPosts.getJSONObject(postInExam);
                 jsonArray  = fromJSONObjectToJSONArray(JSinglePost);
                 Post p = new Post();
-
+                p.setIdPost(postInExam);
                 p.setAutore(jsonArray.getString(0));
                 p.setData(jsonArray.getString(2));
                 p.setTitolo(jsonArray.getString(3));
                 posts.add(p);
             }
+            UtilitySharedPreference.saveLastPostId(context,groupName,postInExam);
 
 
         } catch (JSONException e) {
