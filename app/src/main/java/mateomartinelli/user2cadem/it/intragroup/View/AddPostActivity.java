@@ -1,7 +1,6 @@
 package mateomartinelli.user2cadem.it.intragroup.View;
 
 import android.content.Intent;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -73,6 +72,6 @@ public class AddPostActivity extends AppCompatActivity {
         titoloPost = findViewById(R.id.titoloPost);
         primoCommento = findViewById(R.id.firstComment);
         dataPost = findViewById(R.id.dataPost);
-        autorePost = findViewById(R.id.autore);
+        autorePost = findViewById(R.id.author);
     }
 }

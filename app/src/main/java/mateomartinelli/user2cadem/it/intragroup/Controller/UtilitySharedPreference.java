@@ -65,5 +65,16 @@ public class UtilitySharedPreference {
         editor.putString(groupName,id);
         editor.commit();
     }
+    public static String getLastCommentId(Context context){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getString("lastId","");
+    }
+
+    public static void saveLastCommentId(Context context, String id){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("lastId",id);
+        editor.commit();
+    }
 
 }

@@ -12,15 +12,25 @@ public class Post implements Serializable {
     private String titolo;
     private Comments comments;
     private String idPost;
+    private String refGroupName;
 
-    public Post(String autore, String data, String titolo, Comments comments) {
+    public Post(String autore, String data, String titolo, Comments comments, String refGroupName) {
         this.autore = autore;
         this.data = data;
         this.titolo = titolo;
         this.comments = comments;
+        this.refGroupName = refGroupName;
     }
 
     public Post() {
+    }
+
+    public void setRefGroupName(String refGroupName) {
+        this.refGroupName = refGroupName;
+    }
+
+    public String getRefGroupName() {
+        return refGroupName;
     }
 
     public String getAutore() {

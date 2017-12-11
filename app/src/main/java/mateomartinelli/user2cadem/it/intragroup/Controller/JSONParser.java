@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import mateomartinelli.user2cadem.it.intragroup.Model.Comments;
 import mateomartinelli.user2cadem.it.intragroup.Model.Post;
 
 /**
@@ -80,6 +81,7 @@ public class JSONParser {
                 p.setAutore(jsonArray.getString(0));
                 p.setData(jsonArray.getString(2));
                 p.setTitolo(jsonArray.getString(3));
+                p.setRefGroupName(groupName);
                 posts.add(p);
             }
             UtilitySharedPreference.saveLastPostId(context,groupName,postInExam);
@@ -89,5 +91,30 @@ public class JSONParser {
             e.printStackTrace();
         }
         return posts;
+    }
+
+    public static ArrayList<Comments> getAllComments(String toParse, Context context) {
+        ArrayList<Comments> comments = new ArrayList<>();
+        Iterator<String> keys;
+        JSONArray jsonArray;
+        try {
+            JSONObject jsonObject = new JSONObject(toParse);
+            jsonArray = fromJSONObjectToJSONArray(jsonObject);
+            for(int i = 0 ; i < jsonArray.length(); i++){
+                JSONObject temp = jsonArray.getJSONObject(i);
+                String autore = temp.getString("Autore");
+                String sCommento = temp.getString("commento");
+                Comments commento = new Comments(autore,sCommento);
+                comments.add(commento);
+            }
+            int lastIndexOf = jsonArray.length()-1;
+            String lastCommentId  = "01";
+            UtilitySharedPreference.saveLastCommentId(context,lastCommentId);
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return comments;
     }
 }

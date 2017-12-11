@@ -4,14 +4,12 @@ import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import mateomartinelli.user2cadem.it.intragroup.Model.Gruppi;
 import mateomartinelli.user2cadem.it.intragroup.Model.Post;
 import mateomartinelli.user2cadem.it.intragroup.R;
 import mateomartinelli.user2cadem.it.intragroup.View.CommentsActivity;
@@ -39,7 +37,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder>{
             super(v);
             post = itemView.findViewById(R.id.singlePost);
             titoloPost = v.findViewById(R.id.titoloPost);
-            autore = v.findViewById(R.id.autore);
+            autore = v.findViewById(R.id.author);
             dataPost = v.findViewById(R.id.data);
         }
     }
