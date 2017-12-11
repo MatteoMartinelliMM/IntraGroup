@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@android:color/white"
     tools:context="mateomartinelli.user2cadem.it.intragroup.View.GroupActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:backgroundTint="@android:color/white">
 
         <ImageView
             android:id="@+id/immagineGruppo"
@@ -20,14 +22,24 @@
             tools:ignore="VectorDrawableCompat" />
 
         <TextView
-            android:id="@+id/nomeGruppo"
-            android:layout_width="wrap_content"
+            android:id="@+id/POSTDELGRUPPO"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/immagineGruppo"
-            android:textColor="@color/colorPrimary"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="10dp"/>
+            android:text="Post del gruppo:"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/listaPost"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/POSTDELGRUPPO"
+            android:layout_toEndOf="@+id/immagineGruppo" />
+
+
     </RelativeLayout>
 </RelativeLayout>

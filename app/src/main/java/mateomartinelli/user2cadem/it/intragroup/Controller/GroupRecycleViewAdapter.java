@@ -23,7 +23,6 @@ import static mateomartinelli.user2cadem.it.intragroup.Controller.UtilitySharedP
 
 public class GroupRecycleViewAdapter extends RecyclerView.Adapter<GroupRecycleViewAdapter.ViewHolder>{
     ArrayList<String> group;
-    private String gruppo;
     public GroupRecycleViewAdapter(ArrayList<String> group) {
         this.group = group;
     }
@@ -58,9 +57,9 @@ public class GroupRecycleViewAdapter extends RecyclerView.Adapter<GroupRecycleVi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        gruppo = group.get(position);
+        final String gruppo= group.get(position);
         holder.nome.setText(gruppo);
-        loadGroupImage(holder);
+        loadGroupImage(holder,gruppo);
         holder.groupImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,7 +70,7 @@ public class GroupRecycleViewAdapter extends RecyclerView.Adapter<GroupRecycleVi
         });
     }
 
-    private void loadGroupImage(ViewHolder holder) {
+    private void loadGroupImage(ViewHolder holder,String gruppo) {
         switch (gruppo.toLowerCase()){
             case "android":
                 holder.groupImg.setBackgroundResource(R.drawable.androidcoding);
@@ -86,7 +85,7 @@ public class GroupRecycleViewAdapter extends RecyclerView.Adapter<GroupRecycleVi
                 holder.groupImg.setBackgroundResource(R.drawable.madonnina);
                 break;
             default:
-                holder.groupImg.setBackgroundResource(R.drawable.defcoding);
+                holder.groupImg.setBackgroundResource(R.drawable.def_group);
                 break;
         }
     }
